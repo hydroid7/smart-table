@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="">
+  <div>
     <button
       type="button"
       class="button"
@@ -27,7 +27,7 @@ export default {
 <style lang="css" scoped>
 .button {
   color: white;
-  width: 40%;
+  width: 15%;
   border: 2px lightgrey solid;
   border-radius: 5px;
   padding: 15px 32px;

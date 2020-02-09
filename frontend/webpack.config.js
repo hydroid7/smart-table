@@ -64,15 +64,21 @@ if (process.env.NODE_ENV === 'production') {
       'process.env': {
         NODE_ENV: '"production"'
       }
+    }),
+    new webpack.optimize.UglifyJsPlugin({
+      output: {
+        max_line_len: 1000
+      },
+      // sourceMap: false,
+      // output: {
+      //   comments: false
+      // }
+      // compress: {
+      //   warnings: false
+      // }
+    }),
+    new webpack.LoaderOptionsPlugin({
+      minimize: false
     })
-    // new webpack.optimize.UglifyJsPlugin({
-    //   sourceMap: true,
-    //   compress: {
-    //     warnings: false
-    //   }
-    // }),
-    // new webpack.LoaderOptionsPlugin({
-    //   minimize: false
-    // })
   ])
 }

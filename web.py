@@ -8,10 +8,6 @@ def web_page(conn, state):
     conn.send('Connection: close\n\n')
     with open('index.html') as __index_html:
         for line in __index_html:
-            if '//JSON-DATA' in line:
-                conn.send('state = ')
-                conn.send(str(state).lower())
-                conn.send('\n')
             conn.send(line)
             gc.collect()
         conn.close()

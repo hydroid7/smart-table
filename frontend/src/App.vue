@@ -2,11 +2,22 @@
   <div id="app">
     <h1>SmartTable Control</h1>
     <color-selector v-model="color"></color-selector>
-    <div style="margin-top: 20px;">
-      <plate-controller :color="color" :display="0" @shift="shiftVisible(0)"></plate-controller>
-      <plate-controller :color="color" :display="1" @shift="shiftVisible(1)"></plate-controller>
-      <plate-controller :color="color" :display="2" @shift="shiftVisible(2)"></plate-controller>
-      <plate-controller :color="color" :display="3" @shift="shiftVisible(3)"></plate-controller>
+    <div style="margin-top: 50px;">
+      <div class="group">
+        <h3>Group left</h3>
+        <h5>Activity</h5>
+        <plate-controller :color="color" :display="1" @shift="shiftVisible(1)"></plate-controller>
+        <h5>Emotions</h5>
+        <plate-controller :color="color" :display="0" @shift="shiftVisible(0)"></plate-controller>
+      </div>
+      <hr>
+      <div class="group">
+        <h3>Group right</h3>
+        <h5>Emotions</h5>
+        <plate-controller :color="color" :display="2" @shift="shiftVisible(2)"></plate-controller>
+        <h5>Activity</h5>
+        <plate-controller :color="color" :display="3" @shift="shiftVisible(3)"></plate-controller>
+      </div>
     </div>
   </div>
 </template>

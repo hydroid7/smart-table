@@ -1,6 +1,8 @@
 from display import Strip, Plate, fade, Display, Colors, COLOR_POOL
 
 STRIP_DEMO = False
+PLATE_DEMO = False
+FADE = 0.15
 
 # Important note: The order of the elements in the array counts!!
 led_strips = [
@@ -53,10 +55,10 @@ front = Display([
     Plate(led_strips[3], 0, 1)
 ])
 
-# front.on_all(fade(Colors.WHITE, 0.1))
-
-for d in displays:
-    d.demo(fade(Colors.WHITE, 0.1))
+if PLATE_DEMO:
+    front.on_all(fade(Colors.WHITE, 0.1))
+    for d in displays:
+        d.demo(fade(Colors.WHITE, FADE))
 
 for d in displays:
     d.off_all()
@@ -67,9 +69,8 @@ print("End of init sequence.")
 def set_table_state(display_index, plate_index, color):
     print("Setting plate " + str(plate_index) + " on display " + str(display_index) + " to the color " + str(color))
     selected_display = displays[display_index]
-    print(selected_display)
-    color = fade(COLOR_POOL[color], 0.2)
-    print(color)
+    selected_display.off_all()
+    color = fade(COLOR_POOL[color], FADE)
     selected_display.on(plate_index, color)
 
 

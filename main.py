@@ -16,10 +16,8 @@ gc.collect()
 while True:
     try:
         conn, addr = s.accept()
-        # print('Got a connection from %s' % str(addr))
         request = conn.recv(1024)
         request = str(request)
-        # print('Content = %s' % request)
         config = ure.search(r'\/tables\/led\/(\d-\d-\d)', request)
         gc.collect()
         if config is not None:
